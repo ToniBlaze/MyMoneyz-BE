@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
 
-const userModel = require("../models/User");
+const userModel = require("../models/Users");
 
-router.get("/users", async (req, res, next) => {
+router.get("/", async (req, res, next) => {
   try {
     const users = await userModel.find();
     res.status(200).json(users);
@@ -12,7 +12,7 @@ router.get("/users", async (req, res, next) => {
   }
 });
 
-router.get("/users/:id", async (req, res, next) => {
+router.get("/:id", async (req, res, next) => {
   try {
     const user = await userModel.findById(req.params.id);
     if (!user) return res.status(404).json({ error: "Utente non trovato" });
@@ -22,7 +22,7 @@ router.get("/users/:id", async (req, res, next) => {
   }
 });
 
-router.post("/users", async (req, res, next) => {
+router.post("/", async (req, res, next) => {
   try {
     const newUser = new userModel(req.body);
     const savedUser = await newUser.save();
@@ -32,7 +32,7 @@ router.post("/users", async (req, res, next) => {
   }
 });
 
-router.put("/users/:id", async (req, res, next) => {
+router.put("/:id", async (req, res, next) => {
   try {
     const updatedUser = await userModel.findByIdAndUpdate(
       req.params.id,
@@ -47,7 +47,7 @@ router.put("/users/:id", async (req, res, next) => {
   }
 });
 
-router.delete("/users/:id", async (req, res, next) => {
+router.delete("/:id", async (req, res, next) => {
   try {
     const deletedUser = await userModel.findByIdAndDelete(req.params.id);
     if (!deletedUser)

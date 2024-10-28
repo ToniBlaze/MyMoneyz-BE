@@ -17,9 +17,9 @@ const userModel = require("./models/Users");
 // const authEndpoints = require("./endpoints/auth");
 // app.use("/api/auth", authEndpoints);
 
-// // Endpoints Users
-// const userEndpoints = require("./endpoints/users");
-// app.use("/api/users", userEndpoints);
+// Endpoints Users
+const userEndpoints = require("./endpoints/users");
+app.use("/api/users", userEndpoints);
 
 // // Endpoints Transactions
 // const transactionEndpoints = require("./endpoints/transactions");
