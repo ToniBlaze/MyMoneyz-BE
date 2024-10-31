@@ -21,10 +21,23 @@ const userSchema = new mongoose.Schema({
   password: {
     type: String,
     required: true,
+    minlength: 8,
   },
   birthDate: {
     type: Date,
     required: true,
+  },
+  annualBudget: {
+    type: Number,
+    default: 0,
+  },
+  dailyBudget: {
+    type: Number,
+    default: 0,
+  },
+  savings: {
+    type: Number,
+    default: 0,
   },
   createdAt: {
     type: Date,
