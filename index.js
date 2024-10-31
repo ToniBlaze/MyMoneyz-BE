@@ -9,10 +9,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Models
-const userModel = require("./models/Users");
-// const transactionModel = require("./models/Transactions");
-
 // // Endpoints Authorization
 // const authEndpoints = require("./endpoints/auth");
 // app.use("/api/auth", authEndpoints);
@@ -22,8 +18,8 @@ const userEndpoints = require("./endpoints/users");
 app.use("/api/users", userEndpoints);
 
 // // Endpoints Transactions
-// const transactionEndpoints = require("./endpoints/transactions");
-// app.use("/api/transactions", transactionEndpoints);
+// const incomeEndpoints = require("./endpoints/incomes");
+// app.use("/api/incomes", incomeEndopoints);
 
 // // Middleware ErrorHandler
 // const errorHandler = require("./middlewares/errorHandler");
